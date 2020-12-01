@@ -1,0 +1,141 @@
+[{
+        "FieldType": "Text",
+        "FieldName": "First Name",
+        "FieldNameAlt": "First Name",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Last Name",
+        "FieldNameAlt": "Last Name",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "City",
+        "FieldNameAlt": "City",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "State",
+        "FieldNameAlt": "State",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Zip Code",
+        "FieldNameAlt": "Zip Code",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Account",
+        "FieldNameAlt": "Account",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Fund",
+        "FieldNameAlt": "Fund:",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Department",
+        "FieldNameAlt": "Department:",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Amount",
+        "FieldNameAlt": "Amount:",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Account_2",
+        "FieldNameAlt": "Account",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Department_2",
+        "FieldNameAlt": "Department:",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Amount_2",
+        "FieldNameAlt": "Amount:",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Account_3",
+        "FieldNameAlt": "Account",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Department_3",
+        "FieldNameAlt": "Department:",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Amount_3",
+        "FieldNameAlt": "Amount:",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Fund_2",
+        "FieldNameAlt": "Fund:",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Fund_3",
+        "FieldNameAlt": "Fund:",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Street Address",
+        "FieldNameAlt": "Below, please provide the mailing address you would like your refund check sent to",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Account Date",
+        "FieldNameAlt": "Account Date",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    },
+    {
+        "FieldType": "Text",
+        "FieldName": "Invoice ID",
+        "FieldNameAlt": "Invoice ID",
+        "FieldFlags": "0",
+        "FieldJustification": "Left"
+    }
+]
