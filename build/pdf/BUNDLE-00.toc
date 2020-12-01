@@ -1,0 +1,1 @@
+([('pdf', '/Users/pauldoho/Desktop/CtoP/Python/dist/pdf', 'EXECUTABLE')],)

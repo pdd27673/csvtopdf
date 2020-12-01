@@ -3,8 +3,9 @@ import tkinter as tk
 from tkinter.constants import END
 from tkinter.filedialog import askopenfilename
 import csv
-
+import os
 import pypdftk
+
 
 # Handler functions
 def import_pdf():
@@ -86,8 +87,10 @@ def convert():
                     }
                     # Creating file name
                     file_name = f'{lastName},{firstName}.pdf'
+                    outputPath = f'{lastName},{firstName}.pdf'
                     # Filling form
-                    pypdftk.fill_form(b, data, file_name)
+                    generated_pdf = pypdftk.fill_form(b, data, outputPath)
+                
                     line_count += 1
 
             print(f'Processed {line_count-1} lines.')
