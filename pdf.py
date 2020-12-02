@@ -3,9 +3,9 @@ import tkinter as tk
 from tkinter.constants import END
 from tkinter.filedialog import askopenfilename
 import csv
-import os
+import os, sys
 import pypdftk
-
+    
 # Handler functions
 def import_pdf():
     global x
@@ -33,11 +33,9 @@ def clear():
 
 # Conversion function
 def convert():
-        
-    abspath = os.path.abspath(__file__)
-    dname = os.path.dirname(abspath)
+    dname = os.path.dirname(os.path.realpath(sys.argv[0]))
     os.chdir(dname)
-    
+
     cwd = os.getcwd()
     final_directory = os.path.join(cwd, r'Filled')
     if not os.path.exists(final_directory):
