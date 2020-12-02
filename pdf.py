@@ -33,6 +33,11 @@ def clear():
 
 # Conversion function
 def convert():
+        
+    abspath = os.path.abspath(__file__)
+    dname = os.path.dirname(abspath)
+    os.chdir(dname)
+    
     cwd = os.getcwd()
     final_directory = os.path.join(cwd, r'Filled')
     if not os.path.exists(final_directory):
