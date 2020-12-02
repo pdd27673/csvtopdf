@@ -6,7 +6,6 @@ import csv
 import os
 import pypdftk
 
-
 # Handler functions
 def import_pdf():
     global x
@@ -34,6 +33,11 @@ def clear():
 
 # Conversion function
 def convert():
+    cwd = os.getcwd()
+    final_directory = os.path.join(cwd, r'Filled')
+    if not os.path.exists(final_directory):
+        os.makedirs(final_directory)
+
     # Check if data.csv has been provided
     try:
         c
@@ -87,7 +91,7 @@ def convert():
                     }
                     # Creating file name
                     file_name = f'{lastName},{firstName}.pdf'
-                    outputPath = f'{lastName},{firstName}.pdf'
+                    outputPath = os.path.join(final_directory, file_name) 
                     # Filling form
                     generated_pdf = pypdftk.fill_form(b, data, outputPath)
                 
