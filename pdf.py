@@ -6,7 +6,12 @@ from tkinter.filedialog import askopenfilename
 import csv
 import os, sys
 import pypdftk
-    
+from PIL import Image,  ImageTk
+import webbrowser
+
+def callback(url):
+    webbrowser.open_new(url)
+
 file_number = 1 
 previous_name = ''
 previous_address = ''
@@ -159,7 +164,7 @@ root = tk.Tk()
 
 # Window properties
 root.title("CSV to PDF")
-root.geometry("300x355")
+root.geometry("410x455")
 
 # Field holding values
 v = tk.StringVar()
@@ -167,11 +172,11 @@ x = tk.StringVar()
 y = tk.StringVar()
 
 # Widgets
-
 ## Messages
-welcome_message = tk.Label(root, text='Welcome to CSV to PDF Form filler :)')
+welcome_message = tk.Label(root, text='Welcome to CSV to PDF Form filler :)', foreground='red')
 instructions_message = tk.Label(
     root, text='To use this program you\'ll need: \n1. Select a data.csv file \n2. Select your form.pdf \n3. Click run!')
+convert_message = tk.Label(root, text='Go to -> https://convertio.co/xls-csv/ <- to convert your csv to pdf', cursor='hand2')
 
 ## Data Fields
 data_field = tk.Entry(root, textvariable=v, width=30)
@@ -179,25 +184,26 @@ form_field = tk.Entry(root, textvariable=x, width=30)
 results_field = tk.Entry(root, textvariable=y, width=30, )
 
 ## Buttons
-data_button = tk.Button(root, text='Select data.csv', highlightbackground='blue', font=18,command=import_csv_data)
-form_button = tk.Button(root, text='Select form.pdf', highlightbackground='blue', font=18,command=import_pdf)
+data_button = tk.Button(root, text='Select data.csv', highlightbackground='blue', font=18,command=import_csv_data, cursor='hand')
+form_button = tk.Button(root, text='Select form.pdf', highlightbackground='blue', font=18,command=import_pdf, cursor='hand')
 
-convert_button = tk.Button(root, text='Run', highlightbackground='green', command=convert)
-clear_button = tk.Button(root, text='Clear', highlightbackground='red', command=clear)
+convert_button = tk.Button(root, text='Run', highlightbackground='green', command=convert, cursor='hand')
+clear_button = tk.Button(root, text='Clear', highlightbackground='red', command=clear, cursor='hand')
 
 # Organizing on GUI.
-instructions_message.grid(row=1, column=0, columnspan=2)
+instructions_message.grid(row=2, column=0, columnspan=2)
 welcome_message.grid(row=0, column=0, columnspan=2)
+convert_message.grid(row=1,column=0, columnspan=2)
+convert_message.bind("<Button-1>", lambda e: callback("https://convertio.co/xls-csv/"))
 
-data_field.grid(row=2, column=0, columnspan=2)
-form_field.grid(row=3, column=0, columnspan=2)
+data_field.grid(row=3, column=0, columnspan=2)
+form_field.grid(row=4, column=0, columnspan=2)
 
-data_button.grid(row=4, column=0, padx=5, pady=2)
-form_button.grid(row=4, column=1, padx=5, pady=2)
+data_button.grid(row=5, column=0, padx=5, pady=2)
+form_button.grid(row=5, column=1, padx=5, pady=2)
 
-convert_button.grid(row=5, column=0, padx=5, pady=10)
-clear_button.grid(row=5, column=1)
+convert_button.grid(row=6, column=0, padx=5, pady=10)
+clear_button.grid(row=6, column=1)
 
-results_field.grid(row=6, column=0, ipady=30, columnspan=2)
-
+results_field.grid(row=7, column=0, ipady=30, columnspan=2)
 root.mainloop()
