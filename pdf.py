@@ -1,4 +1,5 @@
 # Import TK, CSV and PyPDFTK
+from os import stat
 import tkinter as tk
 from tkinter.constants import END
 from tkinter.filedialog import askopenfilename
@@ -6,6 +7,45 @@ import csv
 import os, sys
 import pypdftk
     
+file_number = 1 
+previous_name = ''
+previous_address = ''
+previous_city = ''
+previous_zip = ''
+previous_state = ''
+
+def set_name(name, address, city, postal,state):
+    global previous_name
+    global file_number
+    global previous_address
+    global previous_city 
+    global previous_zip 
+    global previous_state
+
+    previous_name = name
+    previous_address = address
+    previous_city = city
+    previous_zip = postal
+    previous_state = state
+    file_number = 1
+
+    lastName, firstName = name.split('*', 1)
+    firstName = firstName.replace(" ", "")
+    lastName = lastName.replace(" ", "")
+
+    return lastName, firstName
+
+def get_previous_name():
+    global previous_name
+    global file_number 
+    file_number = file_number + 1
+
+    lastName, firstName = previous_name.split('*', 1)
+    firstName = firstName.replace(" ", "")
+    lastName = lastName.replace(" ", "")
+
+    return lastName, firstName
+
 # Handler functions
 def import_pdf():
     global x
@@ -33,9 +73,14 @@ def clear():
 
 # Conversion function
 def convert():
+    global file_number
+    global previous_address
+    global previous_city 
+    global previous_zip 
+    global previous_state
+
     dname = os.path.dirname(os.path.realpath(sys.argv[0]))
     os.chdir(dname)
-
     cwd = os.getcwd()
     final_directory = os.path.join(cwd, r'Filled')
     if not os.path.exists(final_directory):
@@ -75,8 +120,16 @@ def convert():
                     state = row[35]
                     postal = row[36]
 
-                    lastName, firstName = name.split('*', 1)
-                    firstName = firstName.lstrip()
+                    if name == '':
+                        lastName, firstName = get_previous_name()
+                        file_name = f'{lastName},{firstName}-{file_number}.pdf'
+                        invAddress = previous_address
+                        city = previous_city
+                        postal = previous_zip
+                        state = previous_state
+                    else:
+                        lastName, firstName = set_name(name,invAddress,city,postal,state)
+                        file_name = f'{lastName},{firstName}.pdf'
 
                     data = {
                         "First Name": f"{firstName}",
@@ -92,8 +145,6 @@ def convert():
                         "Account Date": f"{invDate}",
                         "Invoice ID": f"{invID}"
                     }
-                    # Creating file name
-                    file_name = f'{lastName},{firstName}.pdf'
                     outputPath = os.path.join(final_directory, file_name) 
                     # Filling form
                     generated_pdf = pypdftk.fill_form(b, data, outputPath)
